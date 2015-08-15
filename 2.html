@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ทดสอบ2</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<input type="button" result="allow"  class="btn btn-danger" value="click" />
+</body>
+<script type="text/javascript">
+$(function(){
+
+	$("input").click(function(){
+
+		//CloseMySelf($(this)):
+		// window.opener.xxx();
+		// parent.window.opener.xxx();
+		// window.onunload = function (e) {
+		//     opener.xxx(); //or
+		// };
+		 // window.close();
+
+		try{
+	        if(parent.window.opener != null && !parent.window.opener.closed)
+	        {
+	          parent.window.opener.xxx("tanandara");
+	        }
+
+    	}catch(e){ alert(e.toString());} 
+    	window.close();
+	});
+
+
+});
+
+// function CloseMySelf(sender) {
+//     try {
+//         window.opener.HandlePopupResult(sender.getAttribute("result"));
+//     }
+//     catch (err) {}
+//     window.close();
+//     return xxx;
+// }
+
+</script>
+</html>
